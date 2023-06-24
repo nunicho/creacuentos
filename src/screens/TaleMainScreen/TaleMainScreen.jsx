@@ -10,7 +10,7 @@ import MainTitle from "../../components/MainTitle/Index";
 import styles from "./Styles";
 
 
-const CategoriesScreen = ({ navigation }) => {
+const TaleMainScreen = ({ navigation }) => {
 
   const categories = useSelector((state) => state.categories.categories);
   const dispatch = useDispatch();
@@ -46,5 +46,5 @@ const CategoriesScreen = ({ navigation }) => {
   );
 };
 
-export default CategoriesScreen;
+export default TaleMainScreen;
 

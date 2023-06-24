@@ -2,7 +2,7 @@ import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import { useEffect } from "react";
-import ProductsItem from "../../components/ProductsItem/index";
+import TaleItem from "../../components/ProductsItem/index";
 
 import {
   filteredProduct,
@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import BackgroundAnimation from "../../components/imgBackground/Index";
 
-const ProductsScreen = ({ navigation, route }) => {
+const TaleCategoryScreen = ({ navigation, route }) => {
   const filteredProducts = useSelector(
     (state) => state.products.filteredProduct
   );
@@ -33,7 +33,7 @@ const ProductsScreen = ({ navigation, route }) => {
 
   const renderProductItem = ({ item }) => (
     <View style={styles.productItem}>
-      <ProductsItem item={item} onSelected={handleSelectedProduct} />
+      <TaleItem item={item} onSelected={handleSelectedProduct} />
     </View>
   );
 
@@ -50,7 +50,7 @@ const ProductsScreen = ({ navigation, route }) => {
   );
 };
 
-export default ProductsScreen;
+export default TaleCategoryScreen;
 
 const styles = StyleSheet.create({
   container: {

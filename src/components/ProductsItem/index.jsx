@@ -2,7 +2,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import styles from "./styles";
 
-const ProductsItem = ({ item, onSelected }) => {
+const TaleItem = ({ item, onSelected }) => {
   return (
     <TouchableOpacity
       style={styles.itemContainer}
@@ -25,4 +25,4 @@ const ProductsItem = ({ item, onSelected }) => {
   );
 };
 
-export default ProductsItem;
+export default TaleItem;

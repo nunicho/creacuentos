@@ -1,9 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
-import CartNavigator from "./CartNavigator";
+import { StyleSheet, View } from "react-native";
 import CameraNavigator from "./CameraNavigator";
 import ProfileNavigator from "./ProfileNavigator";
 import FavoritesNavigator from "./FavoritesNavigator";
-import ShopNavigator from "./ShopNavigator";
+import TaleNavigator from "./TaleNavigator";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -19,8 +18,8 @@ export default MaterialBottomTabNavigator = () => {
       barStyle={{ paddingBottom: 15 }}
     >
       <MaterialBottomTabs.Screen
-        name="ShopNavigator"
-        component={ShopNavigator}
+        name="TaleNavigator"
+        component={TaleNavigator}
         options={{
           tabBarLabel: "Inicio",
           tabBarIcon: () => (
@@ -59,25 +58,13 @@ export default MaterialBottomTabNavigator = () => {
         }}
       />
       <MaterialBottomTabs.Screen
-        name="Cart"
-        component={CartNavigator}
-        options={{
-          tabBarLabel: "Carrito",
-          tabBarIcon: () => (
-            <View>
-              <MaterialCommunityIcons name="cart" color="green" size={26} />
-            </View>
-          ),
-        }}
-      />
-      <MaterialBottomTabs.Screen
         name="Camera"
         component={CameraNavigator}
         options={{
-          tabBarLabel: "Camara",
+          tabBarLabel: "Cámara",
           tabBarIcon: () => (
             <View>
-              <MaterialCommunityIcons name="camera" color="purple" size={26} />
+              <MaterialCommunityIcons name="camera" color="green" size={26} />
             </View>
           ),
         }}

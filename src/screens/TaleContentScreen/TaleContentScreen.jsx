@@ -18,7 +18,7 @@ import styles from "./Styles";
 import React from "react";
 import { useSelector } from "react-redux";
 
-const DetailsScreen = () => {
+const TaleContentScreen = () => {
   const [loadingSpinner, setLoadingSpinner] = useState(true);
   const [outputMessage, setOutputMessage] = useState("");
   const tale = useSelector((state) => state.products.selected);
@@ -68,7 +68,7 @@ const DetailsScreen = () => {
   );
 };
 
-export default DetailsScreen;
+export default TaleContentScreen;
 
 // CODIGO ANTERIOR(sin usar API ChatGPT)
 /*

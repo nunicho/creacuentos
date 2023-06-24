@@ -1,11 +1,11 @@
 import React from 'react'
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CategoriesScreen from "../screens/CategoriesScreen/CategoriesScreen";
-import DetailsScreen from "../screens/DetailsScreen/DetailsScreen";
-import ProductsScreen from "../screens/ProductsScreen/ProductsScreen";
+import TaleMainScreen from "../screens/TaleMainScreen/TaleMainScreen";
+import TaleContentScreen from "../screens/TaleContentScreen/TaleContentScreen";
+import TaleCategoryScreen from "../screens/TaleCategoryScreen/TaleCategoryScreen";
 
-  const Stack = createNativeStackNavigator();
-const ShopNavigator = () => {
+const Stack = createNativeStackNavigator();
+const TaleNavigator = () => {
   
 
     return (
@@ -17,21 +17,21 @@ const ShopNavigator = () => {
       >
         <Stack.Screen
           name="Home"
-          component={CategoriesScreen}
+          component={TaleMainScreen}
           options={{
             title: "Categories",
           }}
         />
         <Stack.Screen
           name="ProductsScreen"
-          component={ProductsScreen}
+          component={TaleCategoryScreen}
           options={({ route }) => ({
             title: route.params.name,
           })}
         />
         <Stack.Screen
           name="Details"
-          component={DetailsScreen}
+          component={TaleContentScreen}
           options={({ route }) => ({
             title: route.params.name,
           })}
@@ -40,7 +40,7 @@ const ShopNavigator = () => {
     );
 }
 
-export default ShopNavigator
+export default TaleNavigator
 
 
 
