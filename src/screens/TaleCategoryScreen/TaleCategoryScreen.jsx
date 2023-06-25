@@ -10,7 +10,6 @@ import {
 } from "../../store/actions/products.action";
 
 import { useSelector, useDispatch } from "react-redux";
-
 import BackgroundAnimation from "../../components/imgBackground/Index";
 
 const TaleCategoryScreen = ({ navigation, route }) => {

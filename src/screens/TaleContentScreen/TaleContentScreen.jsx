@@ -30,7 +30,7 @@ const TaleContentScreen = () => {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Bearer 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",
+          "Bearer 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",
       },
       body: JSON.stringify({
         messages: [{ role: "user", content: tale.chatGPTOrder }],
