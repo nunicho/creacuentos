@@ -23,14 +23,14 @@ const TaleNavigator = () => {
           }}
         />
         <Stack.Screen
-          name="ProductsScreen"
+          name="TaleCategoryScreen"
           component={TaleCategoryScreen}
           options={({ route }) => ({
             title: route.params.name,
           })}
         />
         <Stack.Screen
-          name="Details"
+          name="TaleContentScreen"
           component={TaleContentScreen}
           options={({ route }) => ({
             title: route.params.name,

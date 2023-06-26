@@ -2,7 +2,7 @@ import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import { useEffect } from "react";
-import TaleItem from "../../components/ProductsItem/index";
+import TaleItem from "../../components/TaleItem/index";
 
 import {
   filteredProduct,
@@ -25,7 +25,7 @@ const TaleCategoryScreen = ({ navigation, route }) => {
 
   const handleSelectedProduct = (item) => {
     dispatch(selectedProduct(item.id));
-    navigation.navigate("Details", {
+    navigation.navigate("TaleContentScreen", {
       name: item.name,
     });
   };

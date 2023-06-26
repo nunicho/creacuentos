@@ -18,8 +18,8 @@ const TaleMainScreen = ({ navigation }) => {
 
   const handleSelectedCategory = item => {
         dispatch(selectedCategory(item.id));
-    navigation.navigate("ProductsScreen", {
-        name: item.title,
+    navigation.navigate("TaleCategoryScreen", {
+      name: item.title,
     });
   };
 

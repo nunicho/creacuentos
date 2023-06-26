@@ -1,15 +1,12 @@
 import {
-  StyleSheet,
   Text,
   View,
   Image,
   ScrollView,
-  TouchableOpacity,
 } from "react-native";
 import { useState, useEffect } from "react";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { ActivityIndicator, Colors } from "react-native-paper";
-import watch from '../../assets/gif/clock.gif'
+import { ActivityIndicator} from "react-native-paper";
+
 
 // import * as Speech from 'expo-speech'
 

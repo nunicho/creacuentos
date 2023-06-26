@@ -10,6 +10,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import store from "./src/store";
 
+
 export default function App() {
   const [ingresar, setIngresar] = useState(false);
 
@@ -23,16 +24,16 @@ export default function App() {
 
   return (
     <Provider store={store}>
-    <View style={styles.container}>
-      <BackgroundAnimation />
-      {!ingresar ? (
-        <Welcome handleStart={handleStart} />
-      ) : (
-        <NavigationContainer>
+      <View style={styles.container}>
+        <BackgroundAnimation />
+        {!ingresar ? (
+          <Welcome handleStart={handleStart} />
+        ) : (
+          <NavigationContainer>
             <BottomTabNavigator />
-        </NavigationContainer>
-      )}
-    </View>
+          </NavigationContainer>
+        )}
+      </View>
     </Provider>
   );
 }

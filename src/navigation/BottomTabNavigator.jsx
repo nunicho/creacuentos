@@ -3,6 +3,7 @@ import CameraNavigator from "./CameraNavigator";
 import ProfileNavigator from "./ProfileNavigator";
 import FavoritesNavigator from "./FavoritesNavigator";
 import TaleNavigator from "./TaleNavigator";
+import MyTaleNavigator from "./MyTaleNavigator";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -25,6 +26,18 @@ export default MaterialBottomTabNavigator = () => {
           tabBarIcon: () => (
             <View>
               <MaterialCommunityIcons name="home" color="blue" size={26} />
+            </View>
+          ),
+        }}
+      />
+      <MaterialBottomTabs.Screen
+        name="MyTaleNavigator"
+        component={MyTaleNavigator}
+        options={{
+          tabBarLabel: "Mi Cuento",
+          tabBarIcon: () => (
+            <View>
+              <MaterialCommunityIcons name="pencil" color="purple" size={26} />
             </View>
           ),
         }}
