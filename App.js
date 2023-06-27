@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { StyleSheet, View } from "react-native";
 import Welcome from "./src/screens/Welcome/Index";
@@ -11,8 +11,34 @@ import { Provider } from "react-redux";
 import store from "./src/store";
 
 
+// DATABASE
+import { init } from "./src/database/database";
+import AppLoading from "expo-app-loading";
+
+
 export default function App() {
-  const [ingresar, setIngresar] = useState(false);
+
+// DATABASE
+  const [dbInitialized, setDbInitialized] = useState(false);
+   const [ingresar, setIngresar] = useState(false);
+
+  useEffect(() => {
+    init()
+      .then(() => {
+        setDbInitialized(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  if (!dbInitialized) {
+    return <AppLoading />;
+  }
+
+
+
+ 
 
   function handleStart() {
     setIngresar(true);

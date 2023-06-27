@@ -1,11 +1,12 @@
 import { StyleSheet, View } from "react-native";
 import CameraNavigator from "./CameraNavigator";
 import ProfileNavigator from "./ProfileNavigator";
-import FavoritesNavigator from "./FavoritesNavigator";
+import MyTaleContentNavigator from "./MyTaleContentNavigator";
 import TaleNavigator from "./TaleNavigator";
 import MyTaleNavigator from "./MyTaleNavigator";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
 
 const MaterialBottomTabs = createMaterialBottomTabNavigator();
 
@@ -59,10 +60,10 @@ export default MaterialBottomTabNavigator = () => {
         }}
       />
       <MaterialBottomTabs.Screen
-        name="Favorites"
-        component={FavoritesNavigator}
+        name="MyTales"
+        component={MyTaleContentNavigator}
         options={{
-          tabBarLabel: "Favoritos",
+          tabBarLabel: "MyTales",
           tabBarIcon: () => (
             <View>
               <MaterialCommunityIcons name="heart" color="red" size={26} />

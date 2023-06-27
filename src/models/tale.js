@@ -1,3 +1,5 @@
+
+
 export class Tale {
   constructor(title, imageUri, content, id) {
     this.title = title;

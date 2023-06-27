@@ -21,13 +21,6 @@ const MyTaleNavigator = () => {
           title: "Input",
         }}
       />
-      <Stack.Screen
-        name="MyTaleContent"
-        component={MyTaleContentScreen}
-        options={({ route }) => ({
-          title: route.params.name,
-        })}
-      />
     </Stack.Navigator>
   );
 };
