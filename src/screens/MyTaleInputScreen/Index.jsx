@@ -4,7 +4,6 @@ import {
   SafeAreaView,
   StyleSheet,
   Button,
-  Image,
 } from "react-native";
 import React from "react";
 import { TextInput } from "react-native-paper";
@@ -15,6 +14,7 @@ import { Tale } from "../../models/tale";
 
 //IMPORTAMOS DE LA DATABASE
 import { insertTale } from "../../database/database";
+import ImagePicker from "../../components/ImagePicker/ImagePicker";
 
 function MyTaleInputScreen() {
   const [race, setRace] = useState("Caballero");
@@ -27,7 +27,9 @@ function MyTaleInputScreen() {
   const [taleImage, setTaleImage] = useState("NO IMAGE");
 
   // IMAGEN
-
+  function takeImageHandler(imageUri) {
+    setTaleImage(imageUri);
+  }
   //AGREGAR MECANICA DE IMAGEN
 
   const newTale =
@@ -39,7 +41,7 @@ function MyTaleInputScreen() {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Bearer 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",
+          "Bearer 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",
       },
       body: JSON.stringify({
         messages: [{ role: "user", content: newTale }],
@@ -103,6 +105,7 @@ function MyTaleInputScreen() {
               value={power}
             />
           </View>
+          <ImagePicker onTakeImage={takeImageHandler} />
           <Button title="Generar Cuento" onPress={generateTaleHandler} />
         </>
       ) : (

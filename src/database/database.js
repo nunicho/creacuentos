@@ -34,10 +34,8 @@ export function insertTale(tale) {
   const promise = new Promise((resolve, reject) => {
     database.transaction((tx) => {
       tx.executeSql(
-        `INSERT INTO tales (title, content, imageUri ) VALUES (?, ?, ?)`,
-        [tale.title, 
-        tale.content, 
-        tale.imageUri],
+        `INSERT INTO tales (title, imageUri, content  ) VALUES (?, ?, ?)`,
+        [tale.title, tale.imageUri, tale.content],
         (_, result) => {
           resolve(result);
         },
@@ -61,14 +59,7 @@ export function fetchTales() {
           const tales = [];
 
           for (const dp of result.rows._array) {
-            tales.push(
-              new Tale(
-                dp.title,
-                dp.content,
-                dp.imageUri,
-                dp.id
-              )
-            );
+            tales.push(new Tale(dp.title, dp.imageUri, dp.content, dp.id));
           }
           resolve(tales);
         },
@@ -107,7 +98,6 @@ export function fetchTaleDetails(id) {
 
   return promise;
 }
-
 
 /*
           title TEXT NOT NULL,

@@ -1,5 +1,4 @@
 import { StyleSheet, View } from "react-native";
-import CameraNavigator from "./CameraNavigator";
 import ProfileNavigator from "./ProfileNavigator";
 import MyTaleContentNavigator from "./MyTaleContentNavigator";
 import TaleNavigator from "./TaleNavigator";
@@ -67,18 +66,6 @@ export default MaterialBottomTabNavigator = () => {
           tabBarIcon: () => (
             <View>
               <MaterialCommunityIcons name="heart" color="red" size={26} />
-            </View>
-          ),
-        }}
-      />
-      <MaterialBottomTabs.Screen
-        name="Camera"
-        component={CameraNavigator}
-        options={{
-          tabBarLabel: "Cámara",
-          tabBarIcon: () => (
-            <View>
-              <MaterialCommunityIcons name="camera" color="green" size={26} />
             </View>
           ),
         }}

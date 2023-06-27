@@ -1,7 +1,7 @@
 import { View, Button, Image, Text, StyleSheet } from "react-native";
 import { useState } from "react";
 import Colors from "../../constants/colors";
-import BackgroundAnimation from "../../components/imgBackground/Index";
+import BackgroundAnimation from "../imgBackground/Index";
 
 import {
   launchCameraAsync,
@@ -9,7 +9,7 @@ import {
   PermissionStatus,
 } from "expo-image-picker";
 
-function ImagePicker() {
+function ImagePicker({ onTakeImage }) {
   const [pickedImage, setPickedImage] = useState();
 
   const [cameraPermissionInformation, requestPermission] =
@@ -42,8 +42,8 @@ function ImagePicker() {
       quality: 0.5,
     });
     setPickedImage(image.assets[0].uri);
- 
-     }
+    onTakeImage(image.uri);
+  }
 
   let imagePreview = <Text> ¡Aún no se sacó ninguna foto!.</Text>;
 

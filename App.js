@@ -10,17 +10,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import store from "./src/store";
 
-
 // DATABASE
 import { init } from "./src/database/database";
 import AppLoading from "expo-app-loading";
 
-
 export default function App() {
-
-// DATABASE
+  // DATABASE
   const [dbInitialized, setDbInitialized] = useState(false);
-   const [ingresar, setIngresar] = useState(false);
+
+  const [ingresar, setIngresar] = useState(false);
 
   useEffect(() => {
     init()
@@ -35,10 +33,6 @@ export default function App() {
   if (!dbInitialized) {
     return <AppLoading />;
   }
-
-
-
- 
 
   function handleStart() {
     setIngresar(true);
