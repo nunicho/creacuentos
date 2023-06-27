@@ -9,72 +9,35 @@ import React from "react";
 import { TextInput } from "react-native-paper";
 import { useState } from "react";
 
-//IMPORTAMOS EL MODELO
-import { Tale } from "../../models/tale";
 
-//IMPORTAMOS DE LA DATABASE
-import { insertTale } from "../../database/database";
 import ImagePicker from "../../components/ImagePicker/ImagePicker";
 
-function MyTaleInputScreen() {
+function MyTaleInputScreen({navigation}) {
   const [race, setRace] = useState("Caballero");
   const [environment, setEnvironment] = useState(" Espacio");
-  const [power, setPower] = useState("superfuerza");
-  const [outputMessage, setOutputMessage] = useState("");
-
+  const [power, setPower] = useState("superfuerza");  
   const [title, setTitle] = useState("Mi título");
-  const [content, setContent] = useState("");
   const [taleImage, setTaleImage] = useState("NO IMAGE");
 
   // IMAGEN
   function takeImageHandler(imageUri) {
     setTaleImage(imageUri);
   }
-  //AGREGAR MECANICA DE IMAGEN
+  
 
-  const newTale =
-    "Generar un cuento" + " " + race + " " + environment + " " + power;
-
-  function generateTaleHandler() {
-    fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization:
-          "Bearer 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",
-      },
-      body: JSON.stringify({
-        messages: [{ role: "user", content: newTale }],
-        model: "gpt-3.5-turbo",
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.choices[0].message.content);
-        setOutputMessage(data.choices[0].message.content.trim());
-        setContent(outputMessage);
-        console.log(title);
-        console.log(content);
-      });
-  }
-
-  // API LLAMANDO A LA DATABASE PARA GUARDAR EL CUENTO
-  function saveTaleHandler() {
-    const taleData = new Tale(
-      (this.title = title),
-      (this.imageUri = taleImage),
-      (this.content = content)
-
-    )
-    
-    insertTale(taleData);
+  function generateTaleHandler(){
+    navigation.navigate("MyTaleDetailScreen", {
+      title: title,
+      taleImage: taleImage,
+      race: race,
+      environment: environment,
+      power: power,
+    });
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      {!outputMessage ? (
-        <>
-          <View>
+        <View>
             <Text>Elige tu personaje</Text>
           </View>
           <View>
@@ -106,14 +69,7 @@ function MyTaleInputScreen() {
             />
           </View>
           <ImagePicker onTakeImage={takeImageHandler} />
-          <Button title="Generar Cuento" onPress={generateTaleHandler} />
-        </>
-      ) : (
-        <View>
-          <Text>{content}</Text>
-          <Button title="Guardar Cuento" onPress={saveTaleHandler} />
-        </View>
-      )}
+          <Button title="Generar Cuento" onPress={generateTaleHandler} />        
     </SafeAreaView>
   );
 }
